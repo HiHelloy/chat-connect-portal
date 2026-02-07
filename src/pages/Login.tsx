@@ -43,10 +43,9 @@ const Login = () => {
     setIsLoading(true);
     // Simulate login delay
     await new Promise((resolve) => setTimeout(resolve, 1000));
-    setIsLoading(false);
     
     // Navigate to chat page
-    navigate("/chat");
+    navigate("/chat", { replace: true });
   };
 
   return (
@@ -133,13 +132,14 @@ const Login = () => {
                   <RefreshCw className="w-5 h-5 text-muted-foreground" />
                 </button>
               </div>
-              <Input
-                type="number"
-                placeholder="Enter the answer"
-                value={captchaInput}
-                onChange={(e) => setCaptchaInput(e.target.value)}
-                className="h-12 bg-secondary/50 border-border/50 focus:border-primary focus:ring-primary/20 transition-all"
-              />
+               <Input
+                 type="text"
+                 inputMode="numeric"
+                 placeholder="Enter the answer"
+                 value={captchaInput}
+                 onChange={(e) => setCaptchaInput(e.target.value)}
+                 className="h-12 bg-secondary/50 border-border/50 focus:border-primary focus:ring-primary/20 transition-all"
+               />
             </div>
 
             {/* Error Message */}
