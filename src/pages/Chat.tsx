@@ -2,6 +2,7 @@ import { useState, useRef, useEffect } from "react";
 import ChatSidebar from "@/components/chat/ChatSidebar";
 import ChatMessage, { Message } from "@/components/chat/ChatMessage";
 import ChatInput from "@/components/chat/ChatInput";
+import ThemeToggle from "@/components/ThemeToggle";
 import { Sparkles } from "lucide-react";
 
 const SUGGESTIONS = [
@@ -90,6 +91,7 @@ const Chat = () => {
 
   return (
     <div className="h-screen w-full flex bg-background overflow-hidden">
+      <ThemeToggle />
       {/* Sidebar */}
       <ChatSidebar
         isCollapsed={sidebarCollapsed}
