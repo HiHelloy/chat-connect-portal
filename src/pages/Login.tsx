@@ -49,27 +49,26 @@ const Login = () => {
   };
 
   return (
-    <div className="min-h-screen w-full flex items-center justify-center bg-mesh relative overflow-hidden">
+    <div className="min-h-screen w-full flex items-center justify-center bg-[hsl(222,47%,6%)] relative overflow-hidden">
       <ThemeToggle />
-      {/* Decorative elements */}
+      {/* Background glow effects */}
       <div className="absolute inset-0 overflow-hidden pointer-events-none">
-        <div className="absolute -top-40 -right-40 w-80 h-80 rounded-full bg-primary/10 blur-3xl animate-float" />
-        <div className="absolute -bottom-40 -left-40 w-96 h-96 rounded-full bg-accent/10 blur-3xl animate-float" style={{ animationDelay: "-3s" }} />
-        <div className="absolute top-1/2 left-1/4 w-64 h-64 rounded-full bg-primary/5 blur-2xl" />
+        <div className="absolute top-1/4 -left-20 w-80 h-[600px] rounded-full bg-[hsl(220,100%,50%)] blur-[120px] opacity-30" />
+        <div className="absolute bottom-1/4 -right-20 w-80 h-[600px] rounded-full bg-[hsl(30,100%,50%)] blur-[120px] opacity-40" />
       </div>
 
       {/* Login Card */}
       <div className="relative z-10 w-full max-w-md mx-4 animate-scale-in">
-        <div className="glass-strong rounded-2xl p-8 shadow-xl">
+        <div className="rounded-2xl p-8 bg-[hsl(222,30%,12%)] border border-[hsl(220,20%,20%)] shadow-2xl">
           {/* Header */}
           <div className="text-center mb-8">
-            <div className="inline-flex items-center justify-center w-16 h-16 rounded-2xl bg-gradient-hero mb-4 shadow-lg animate-glow-pulse">
+            <div className="inline-flex items-center justify-center w-16 h-16 rounded-2xl bg-gradient-hero mb-4 shadow-lg">
               <Sparkles className="w-8 h-8 text-white" />
             </div>
-            <h1 className="text-3xl font-bold text-foreground mb-2">
+            <h1 className="text-3xl font-bold text-white mb-2">
               Welcome Back
             </h1>
-            <p className="text-muted-foreground">
+            <p className="text-[hsl(215,20%,55%)]">
               Sign in to access Knowledge Assistant
             </p>
           </div>
@@ -78,43 +77,43 @@ const Login = () => {
           <form onSubmit={handleSubmit} className="space-y-5">
             {/* Email Field */}
             <div className="space-y-2">
-              <Label htmlFor="email" className="text-sm font-medium text-foreground">
+              <Label htmlFor="email" className="text-sm font-medium text-white">
                 Email Address
               </Label>
               <div className="relative">
-                <Mail className="absolute left-3 top-1/2 -translate-y-1/2 w-5 h-5 text-muted-foreground" />
+                <Mail className="absolute left-3 top-1/2 -translate-y-1/2 w-5 h-5 text-[hsl(215,20%,45%)]" />
                 <Input
                   id="email"
                   type="email"
                   placeholder="you@example.com"
                   value={email}
                   onChange={(e) => setEmail(e.target.value)}
-                  className="pl-11 h-12 bg-secondary/50 border-border/50 focus:border-primary focus:ring-primary/20 transition-all"
+                  className="pl-11 h-12 bg-[hsl(222,30%,16%)] border-[hsl(220,20%,22%)] text-white placeholder:text-[hsl(215,20%,45%)] focus:border-primary focus:ring-primary/20 transition-all"
                 />
               </div>
             </div>
 
             {/* Password Field */}
             <div className="space-y-2">
-              <Label htmlFor="password" className="text-sm font-medium text-foreground">
+              <Label htmlFor="password" className="text-sm font-medium text-white">
                 Password
               </Label>
               <div className="relative">
-                <Lock className="absolute left-3 top-1/2 -translate-y-1/2 w-5 h-5 text-muted-foreground" />
+                <Lock className="absolute left-3 top-1/2 -translate-y-1/2 w-5 h-5 text-[hsl(215,20%,45%)]" />
                 <Input
                   id="password"
                   type="password"
                   placeholder="••••••••"
                   value={password}
                   onChange={(e) => setPassword(e.target.value)}
-                  className="pl-11 h-12 bg-secondary/50 border-border/50 focus:border-primary focus:ring-primary/20 transition-all"
+                  className="pl-11 h-12 bg-[hsl(222,30%,16%)] border-[hsl(220,20%,22%)] text-white placeholder:text-[hsl(215,20%,45%)] focus:border-primary focus:ring-primary/20 transition-all"
                 />
               </div>
             </div>
 
             {/* Captcha */}
             <div className="space-y-2">
-              <Label className="text-sm font-medium text-foreground">
+              <Label className="text-sm font-medium text-white">
                 Security Check
               </Label>
               <div className="flex items-center gap-3">
@@ -128,24 +127,24 @@ const Login = () => {
                 <button
                   type="button"
                   onClick={refreshCaptcha}
-                  className="h-12 w-12 flex items-center justify-center rounded-lg bg-secondary hover:bg-secondary/80 transition-colors"
+                  className="h-12 w-12 flex items-center justify-center rounded-lg bg-[hsl(222,30%,16%)] border border-[hsl(220,20%,22%)] hover:bg-[hsl(222,30%,20%)] transition-colors"
                 >
-                  <RefreshCw className="w-5 h-5 text-muted-foreground" />
+                  <RefreshCw className="w-5 h-5 text-[hsl(215,20%,65%)]" />
                 </button>
               </div>
-               <Input
-                 type="text"
-                 inputMode="numeric"
-                 placeholder="Enter the answer"
-                 value={captchaInput}
-                 onChange={(e) => setCaptchaInput(e.target.value)}
-                 className="h-12 bg-secondary/50 border-border/50 focus:border-primary focus:ring-primary/20 transition-all"
-               />
+              <Input
+                type="text"
+                inputMode="numeric"
+                placeholder="Enter the answer"
+                value={captchaInput}
+                onChange={(e) => setCaptchaInput(e.target.value)}
+                className="h-12 bg-[hsl(222,30%,16%)] border-[hsl(220,20%,22%)] text-white placeholder:text-[hsl(215,20%,45%)] focus:border-primary focus:ring-primary/20 transition-all"
+              />
             </div>
 
             {/* Error Message */}
             {error && (
-              <div className="p-3 rounded-lg bg-destructive/10 border border-destructive/20 text-destructive text-sm text-center animate-fade-in">
+              <div className="p-3 rounded-lg bg-destructive/20 border border-destructive/30 text-red-400 text-sm text-center animate-fade-in">
                 {error}
               </div>
             )}
@@ -169,7 +168,7 @@ const Login = () => {
 
           {/* Footer */}
           <div className="mt-6 text-center">
-            <p className="text-sm text-muted-foreground">
+            <p className="text-sm text-[hsl(215,20%,50%)]">
               Protected by advanced security
             </p>
           </div>
